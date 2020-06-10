@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "build-mesh": "mesh build",
     "start": "ts-node src/index.ts"
   },
   "dependencies": {
-    "@types/node": "16.11.6",
-    "apollo-datasource-rest": "^3.3.0",
+    "@graphql-mesh/cli": "^0.42.6",
+    "@graphql-mesh/openapi": "^0.19.3",
+    "@graphql-mesh/json-schema": "^0.21.7",
     "apollo-server": "^3.4.0",
     "graphql": "^15.6.1",
     "ts-node": "^10.4.0",
