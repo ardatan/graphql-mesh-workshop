@@ -15,3 +15,13 @@ sources:
             method: GET
             requestSample: ./src/openbrewery/breweriesInputSample.json
             responseSample: ./src/openbrewery/breweriesSample.json
+
+additionalTypeDefs: |
+      extend type PopulatedPlaceSummary {
+          breweries: [BreweriesSampleJsonResponse]
+      }
+
+require: 
+  - ts-node/register/transpile-only
+additionalResolvers:
+  - ./src/additional-resolvers.ts
