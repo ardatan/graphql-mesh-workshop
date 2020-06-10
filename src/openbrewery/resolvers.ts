@@ -1,7 +1,12 @@
 import { IResolvers } from "apollo-server";
+import { Sdk } from "../sdk.generated";
 
 export const openBreweryResolvers: IResolvers = {
     Query: {
-        findBreweries: (root, args, context, info) => context.dataSources.openBreweryAPI.findBreweries(args),
+        findBreweries: async (root, args, context: { sdk: Sdk }, info) => {
+            const result = await context.sdk.breweriesQuery({ input: args });
+            return result.breweries;
+        },
     }
 };
+
