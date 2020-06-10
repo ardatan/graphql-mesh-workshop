@@ -1,0 +1,16 @@
+{
+  "name": "graphql-mesh-workshop",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@types/node": "16.11.6",
+    "apollo-datasource-rest": "^3.3.0",
+    "apollo-server": "^3.4.0",
+    "graphql": "^15.6.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
