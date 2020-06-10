@@ -21,7 +21,14 @@ additionalTypeDefs: |
           breweries: [BreweriesSampleJsonResponse]
       }
 
-require: 
-  - ts-node/register/transpile-only
 additionalResolvers:
-  - ./src/additional-resolvers.ts
+  - type: PopulatedPlaceSummary
+    field: breweries
+    requiredSelectionSet: |
+      { 
+        name 
+      }
+    targetSource: OpenBrewery
+    targetMethod: breweries
+    args:
+      "input.by_city": '{root.name}'
