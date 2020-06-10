@@ -16,6 +16,19 @@ sources:
             requestSample: ./src/openbrewery/breweriesInputSample.json
             responseSample: ./src/openbrewery/breweriesSample.json
 
-sdk:
-  generateOperations:
-     selectionSetDepth: 2
+additionalTypeDefs: |
+      extend type PopulatedPlaceSummary {
+          breweries: [_query_breweries_items]
+      }
+
+require: 
+  - ts-node/register/transpile-only
+additionalResolvers:
+  - ./src/additional-resolvers.ts
+
+documents: 
+  - ./example-query.graphql
+
+serve:
+  port: 4000
+
