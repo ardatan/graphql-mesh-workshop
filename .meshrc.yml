@@ -1,0 +1,17 @@
+sources:
+  - name: GeoDB
+    handler:
+        openapi:
+          source: https://wirefreethought.github.io/geodb-cities-api-docs/swagger.json
+          baseUrl: http://geodb-free-service.wirefreethought.com/
+  - name: OpenBrewery
+    handler:
+      jsonSchema:
+        baseUrl: https://api.openbrewerydb.org
+        operations:
+          - type: Query
+            field: breweries
+            path: breweries
+            method: GET
+            requestSample: ./src/openbrewery/breweriesInputSample.json
+            responseSample: ./src/openbrewery/breweriesSample.json
