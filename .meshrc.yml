@@ -21,10 +21,18 @@ additionalTypeDefs: |
           breweries: [_query_breweries_items]
       }
 
-require: 
-  - ts-node/register/transpile-only
 additionalResolvers:
-  - ./src/additional-resolvers.ts
+  - targetTypeName: PopulatedPlaceSummary
+    targetFieldName: breweries
+    requiredSelectionSet: |
+      { 
+        name 
+      }
+    sourceName: OpenBrewery
+    sourceTypeName: Query
+    sourceFieldName: breweries
+    sourceArgs:
+      "input.by_city": '{root.name}'
 
 documents: 
   - ./example-query.graphql
